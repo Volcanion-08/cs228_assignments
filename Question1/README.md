@@ -1,7 +1,7 @@
 # Encoding
 
 - A good place to start would be P(i,j,k) is the atomic proposition that the number at grid position (i,j) is k.
-- This can be encoded into the 3 digit number ijk, or $100\times i + 10*j + k$ to be that proposition.
+- This can be encoded into the 3 digit number ijk, or $100\times i + 10\times j + k$ to be that proposition.
 
 # Building the CNF
 
