@@ -1,8 +1,7 @@
 we are going to have an insane number of propositional variables
 aaaaaaaaaaaaaaaaa
 since we are allowed t moves, counting the first to the last position we have t+1 board positions in total
-at each position there are $N\times M$ grid positions.
-at each grid position, it can be 1. empty, 2. wall, 3. player, 4, box, 5. goal. some are mutually exclusive while some are not, but thats still 5
+at each position there are $N\times M$ grid positions. at each grid position, it can be 1. empty, 2. wall, 3. player, 4, box, 5. goal. since some are not mutually exclusive, we will have to maintain 5 separate variables to check for its properties.
 so our total number of propositional variables are $(t+1)\times N\times M\times 5$
 we apply constraints on the next time instant propositional values based on the prev time instant values, trying to encode consecutive board positions.
 we check if there exist a sequence of moves such that all the boxes do end up at the goals
@@ -33,5 +32,15 @@ Also, $t*1000+m$ will be the move that we take at time instant t, basically whil
 
 Using these we can write constraints for variables at time t+1 using the value of variables at time t.
 
--  have no idea what we are going to do if there exists a shorter solution than t moves, if yes how to detect it??
-(edit) maybe we can use $t*1000+9$ to denote if the position of any block changed from time instant t-1 to t. if in the end we get SAT, the last t at which there was a move
+- a note on solution shorter than length t:
+  - if all the boxes are not at goal positions, then the player moves, and a move is recorded in the move-string.
+  - once all the boxes reach goal positions, the player stops moving, in which case no move is added to the move-string.
+  - this is still not helping us to minimize the number of moves as a meaningless back and forth can delay a 7-move solution to a 9 move solution. in this case we could add a constrant ki no going back and forth unless you push a box
+  - this is still insufficient as the player can move in a square and not move any box to then delay a 7 move solution to a 11 move solution. this would not be an issue if t=10, but in a more general algorithmic design i feel something is missing
+  - idea: if the player arrives at the same position without moving a box in between, we do not allow it- not sufficient since 'R' can be written as 'DRU' and will not be caught in this case
+
+
+what we should do on monday-
+1. write constraints on variables at time $t$ using values of variables at time $(t-1)$, first in terms of impllications and then as CNF.
+2. convert that to code, finding efficient loops to encode it
+3. figuring out how to find optimal solution among all possible solutions.
