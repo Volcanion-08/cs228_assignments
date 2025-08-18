@@ -12,11 +12,10 @@ we are given that $N,M\leq10$. which means the row and column will come in 0-9, 
 time instant can be upto 20 as seen in one of the testcases, so i'll let that be highest.
 
 we encode grid position state $s$ as follows:
-- 0 - empty space
+- 0 - wall
 - 1 - player
 - 2 - box
 - 3 - goal
-- 4 - wall
 
 what we can do is the proposition that at time instant t, at position i,j, there is a certain state is- $t\times1000+i\times100+j\times10+s$
 in order to reduce the number of propostional variables, we could also stop tracking grid positions which are walls since they will not change and cannot be any other state. so when checking for wall, we can use the same formula at t=0.
