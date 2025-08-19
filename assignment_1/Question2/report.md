@@ -12,7 +12,7 @@ we are given that $N,M\leq10$. which means the row and column will come in 0-9, 
 time instant can be upto 20 as seen in one of the testcases, so i'll let that be highest.
 
 we encode grid position state $s$ as follows:
-- 0 - wall
+- 4 - wall
 - 1 - player
 - 2 - box
 - 3 - goal
