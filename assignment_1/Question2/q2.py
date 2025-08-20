@@ -215,16 +215,21 @@ class SokobanEncoder:
             # cannot push a box into another box
             for i in range(self.N):
                 for j in range(self.M-2):
-                    self.cnf.append([-(t*100000+(i)*1000+j*10+1), -(t*100000+(i)*1000+(j+1)*10+2), -(t*100000+7), -(t*100000+(i)*1000+(j+2)*10+2)])
+                    self.cnf.append([-(t*100000+(i)*1000+(j)*10+1), -(t*100000+(i)*1000+(j+1)*10+2), -(t*100000+7), -(t*100000+(i)*1000+(j+2)*10+2)])
                     self.cnf.append([-(t*100000+(i)*1000+(j+2)*10+1), -(t*100000+(i)*1000+(j+1)*10+2), -(t*100000+8), -(t*100000+(i)*1000+(j)*10+2)])
             for i in range(self.N-2):
                 for j in range(self.M):
-                    self.cnf.append([-(t*100000+(i+2)*1000+j*10+1), -(t*100000+(i+1)*1000+j*10+2), -(t*100000+5), -(t*100000+(i)*1000+(j)*10)+2])
-                    self.cnf.append([-(t*100000+(i)*1000+j*10+1), -(t*100000+(i+1)*1000+j*10+2), -(t*100000+6), -(t*100000+(i+2)*1000+(j)*10)+2])
-
+                    self.cnf.append([-(t*100000+(i)*1000+(j)*10+1), -(t*100000+(i+1)*1000+(j)*10+2), -(t*100000+6), -(t*100000+(i+2)*1000+(j)*10+2)])
+                    self.cnf.append([-(t*100000+(i+2)*1000+(j)*10+1), -(t*100000+(i+1)*1000+(j)*10+2), -(t*100000+5), -(t*100000+(i)*1000+(j)*10+2)])
 
             for i in range(self.N):
                 for j in range(self.M):
+
+                    # Constraining that box cannot show up unless pushed
+                    if j>=self.M-2:
+                        self.cnf.append([(t*100000+i*1000+j*10+2), -(t*100000+8), -((t+1)*100000+i*1000+j*10+2)])
+                    else:
+                        self.cnf.append([(t*100000+i*1000+j*10+2), -((t+1)*100000+i*1000+j*10+2), -(t*100000+i*1000+(j+1)*10+2), -((t+1)*100000+i*1000+(j+1)*10+2)])
 
                     # updating (t+1) variables
                     # first line is about player movement
@@ -248,10 +253,13 @@ class SokobanEncoder:
                         self.cnf.append([ -(t*100000+i*1000+j*10+1), -(t*100000+6), ((t+1)*100000+(i+1)*1000+(j)*10+1)])
                         self.cnf.append([ -(t*100000+i*1000+j*10+2), -((t+1)*100000+i*1000+j*10+1), -(t*100000+6), ((t+1)*100000+(i+1)*1000+(j)*10+2)])
 
-
+                    # No moving
                     self.cnf.append([ -(t*100000+9), -(t*100000+i*1000+j*10+1), ((t+1)*100000+(i)*1000+(j)*10+1)])
 
+                    # If Box is no more, then player must be present
                     self.cnf.append([ -(t*100000+i*1000+j*10+2), ((t+1)*100000+i*1000+j*10+1), ((t+1)*100000+i*1000+j*10+2)])
+
+
                     # self.cnf.append([ (t*100000+i*1000+j*10+2), ((t+1)*100000+i*1000+j*10+1), -((t+1)*100000+i*1000+j*10+2)])
 
 
