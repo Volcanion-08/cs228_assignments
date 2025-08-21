@@ -1,9 +1,9 @@
-Hello, I do not know if you will ever read this, but I thought T'd just put this here nevertheless.
+Hello, I do not know if you will ever read this, but I thought I'd just put this here nevertheless.
 
 If you are reading this, I hope your doing well and your health is back to normal. Uh, I have to apologise because even though you asked me to not do the assignment without you, I ended up finishing it. There were a bunch of reasons as to why I decided to do so-
 - I LOVE solving problems, it keeps me up at night if there is a problem I have left halfway. I just could not stop thinking about what other constraints are needed and if our code works. My MRT friend taught me that rigorous testing is key, and that's  what I did. tbh I ended up spending ~4-5 hours on this and made the code sufficiently foolproof (although I am aware of a few flaws and I wonder how many more are there which I am not aware of). but ya knowing there are flaws in my code I just cannot not work on it so ya uh.
 - For both CS228 and my elective, I have done some studying, but not rigorous studying which I expect of myself before attending a quiz, so Thursday and Friday evenings would be me locking in so I would not be able to work on this.
 - I saw you at EC101 quiz and you did not seem to be doing very well. I did not want you to work when you're not feeling well. Also in case you did get better by Friday, I thought being done with the assignment would allow you to go for the Sangeet you've been wanting to go to.
 
-So ya I do apologise for doing the assignment without you. We still have the report to write, which we can do together if you want to. Saturday my quiz is from 11am to 12 noon, so after that we can get working on the assignment. If you do find free time, you could try your hand at the bonus problem also.
+So ya I do apologise for doing the assignment without you. We still have the report to write, which we can do together if you want to. Saturday my quiz is from 11am to 12 noon, so after that we can get working on the report. If you do find free time, you could try your hand at the bonus problem also.
 I think I have yapped enough on a file I am not even certain you will read or not so ig that's it.
